@@ -441,6 +441,8 @@
     "whatwg-fetch": "3.6.20"
   },
   "resolutions": {
+    "csv": "6.6.2",
+    "csv-parse": "7.0.2",
     "underscore": "1.13.8",
     "@types/slate": "0.47.16",
     "semver@npm:~7.3.5": "^7.3.5",
