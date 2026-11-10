@@ -277,7 +277,7 @@
     "webpack-subresource-integrity": "^5.2.0-rc.1",
     "webpackbar": "^7.0.0",
     "yargs": "^18.0.0",
-    "zod": "^4.3.0"
+    "zod": "4.6.6"
   },
   "dependencies": {
     "@codemirror/lang-markdown": "6.5.2",

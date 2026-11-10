@@ -235,3 +235,23 @@ describe('UPDATE_METADATA_ANNOTATIONS payload', () => {
     ).toBe(false);
   });
 });
+
+describe('removePanel payload size limit', () => {
+  it('rejects an oversized array before parsing its invalid element references', () => {
+    const result = payloads.removePanel.safeParse({ elements: Array.from({ length: 11 }, () => ({ name: 123 })) });
+
+    expect(result.success).toBe(false);
+    if (!result.success) {
+      expect(result.error.issues).toMatchObject([{ code: 'too_big', path: ['elements'] }]);
+    }
+  });
+
+  it('still validates individual references within the size limit', () => {
+    const result = payloads.removePanel.safeParse({ elements: [{ name: 123 }] });
+
+    expect(result.success).toBe(false);
+    if (!result.success) {
+      expect(result.error.issues).toMatchObject([{ code: 'invalid_type', path: ['elements', 0, 'name'] }]);
+    }
+  });
+});
