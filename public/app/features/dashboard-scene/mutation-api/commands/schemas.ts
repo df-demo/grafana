@@ -677,6 +677,7 @@ const updatePanelPayloadSchema = z
   });
 
 const removePanelPayloadSchema = z.object({
+  // The size limit rejects oversized requests before validating individual panel references.
   elements: z.array(elementReferenceSchema).max(10).describe('Panels to remove, identified by element name'),
 });
 
